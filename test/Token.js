@@ -81,7 +81,7 @@ describe('Token contract', () =>
         // Test 3: Update balances after transfers
         it('Should update balances after transfers', async () => 
         {
-            // ===== Owner Balance Assertion =====
+            // ===== Transactions =====
             // From initial owner balance...
             const initialOwnerBalance = await token.balanceOf(owner.address);
 
@@ -89,10 +89,11 @@ describe('Token contract', () =>
             await token.transfer(addr1.address, 100);
             await token.transfer(addr2.address, 50);
 
-            // Get final owner balance
+            // ===== Owner Balance Assertion =====
+            // a. Get final owner balance
             const finalOwnerBalance = await token.balanceOf(owner.address);
 
-            // We expect the final owner balance to be decreased 
+            // b. We expect the final owner balance to be decreased 
             // by total amount transfered
             expect(finalOwnerBalance)
                 .to.equal(initialOwnerBalance.sub(150));
