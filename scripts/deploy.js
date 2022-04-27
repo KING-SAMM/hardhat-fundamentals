@@ -36,13 +36,15 @@ const main = async () =>
     const token = await Token.deploy();
     console.log(`Token address: ${ token.address }`);
 
-    
+    // Include the following when deploying to a live network
+    // Create data object containing contract address and ABI
     const data = 
     {
         address: token.address,
         abi: JSON.parse(token.interface.format('json'))
     }
 
+    // Write this data to a file in frontend/src directory
     fs.writeFileSync('frontend/src/Token.json', JSON.stringify(data));
 }
 
