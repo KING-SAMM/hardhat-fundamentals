@@ -1,4 +1,5 @@
 const { ethers } = require("hardhat");
+const fs = rewuire('fs');
 
 // async function main()
 // {
@@ -33,6 +34,14 @@ const main = async () =>
     const Token = await ethers.getContractFactory("Token");
     const token = await Token.deploy();
     console.log(`Token address: ${ token.address }`);
+
+    const data = 
+    {
+        address: token.address,
+        abi: JSON.parse(token.interface.format('json'))
+    }
+
+    fs.writeFileSync('frontend/src/Token.json', JSON.stringify(data));
 }
 
 const callMain = async () => 
