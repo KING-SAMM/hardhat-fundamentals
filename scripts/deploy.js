@@ -36,7 +36,7 @@ const main = async () =>
     const token = await Token.deploy();
     console.log(`Token address: ${ token.address }`);
 
-    // Include the following when deploying to a live network
+    // Include the following when integrating to a frontend
     // Create data object containing contract address and ABI
     const data = 
     {
