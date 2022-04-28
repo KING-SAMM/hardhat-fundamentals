@@ -10,8 +10,8 @@ const getBlockchain = () =>
             if(window.ethereum)
             {
                 await window.ethereum.enable();
-                const provider = new ethers.provider.Web3Provider(window.ethereum);
-                const signer = await provider.getSigner();
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
                 const signerAddress = await signer.getAddress();
 
                 const token = new Contract(
