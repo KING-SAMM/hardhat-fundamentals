@@ -1,4 +1,4 @@
-import getBlockchain from './ethereum.js';
+import getBlockchain from './integrate.js';
 import { useState, useEffect } from 'react';
 
 const App = () =>
