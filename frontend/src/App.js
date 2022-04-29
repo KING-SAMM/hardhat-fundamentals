@@ -15,7 +15,7 @@ const App = () =>
         init();
     }, []); 
 
-    if (token == undefined)
+    if (typeof token == 'undefined')
     {
         return 'Loading...';
     }
